@@ -12,25 +12,27 @@ fi
 # ---------------------------
 # 🎨 Icons
 # ---------------------------
-icon_user=""
-icon_host=""
-icon_dir=""
-icon_git=""
+icon_user=""
+icon_host="󰌢"
+icon_dir=""
+icon_git=""
 icon_time="⏱"
 icon_prompt="❯"
+icon_git_wrap_r=" "
+icon_git_wrap_l=""
 
 # ---------------------------
 # 🎨 Prompt Components
 # ---------------------------
-user="%F{14}${icon_user} %n%f"
-host="%F{14}${icon_host} %m%f"
+user="%K{234}%F{14} ${icon_user} %n%f"
+host="%F{14}${icon_host} %m %f%k%F{234}${icon_git_wrap_r}%f  "
 separator="%F{red}@%f"
-directory="%F{11}${icon_dir} %2~%f"
+directory="%F{234}${icon_git_wrap_l}%f %K{234}%F{11} ${icon_dir} %2~%f %k%F{234}${icon_git_wrap_r}%f  "
 
 # Git format
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats " %F{green}${icon_git} %b%f"
-zstyle ':vcs_info:git:*' actionformats " %F{green}${icon_git} %b%f %F{red}(%a)%f"
+zstyle ':vcs_info:git:*' formats " %F{234}${icon_git_wrap_l}%f %K{234} %F{green}${icon_git} %b %f%k%F{234}${icon_git_wrap_r}%f  "
+zstyle ':vcs_info:git:*' actionformats " %F{234}${icon_git_wrap_l}%f%K{234} %F${green}${icon_git} %b%f %F${red}(%a)%f%k %F{234}${icon_git_wrap_r}%f  "
 
 # ---------------------------
 # Hook into precmd for vcs_info
@@ -75,13 +77,13 @@ _prompt_precmd() {
 
     # Use floating point comparison for total_elapsed_time
     if (( total_elapsed_time < ZSH_COMMAND_TIME_SECONDS_GREEN )); then
-        color="green"
+        color="200"
     elif (( total_elapsed_time < ZSH_COMMAND_TIME_SECONDS_YELLOW )); then
         color="yellow"
     else
         color="red"
     fi
-    elapsed=" %F{$color}${icon_time} ${timer_show_formatted}%f"
+    elapsed="%F{234}${icon_git_wrap_l}%f %K{234} %F{$color}${icon_time} ${timer_show_formatted} %f%k%F{234}${icon_git_wrap_r}%f"
   else
     elapsed=""
   fi
@@ -91,6 +93,6 @@ precmd_functions+=(_prompt_precmd)
 # ---------------------------
 # 💻 Prompt Layout
 # ---------------------------
-PROMPT='${user}${separator}${host} ${directory}${vcs_info_msg_0_}${elapsed}
+PROMPT='${user} ${separator} ${host}  ${directory}  ${vcs_info_msg_0_}  ${elapsed}
 %F{red}${icon_prompt}%f '
-RPROMPT="%F{224} %* %f"
+RPROMPT="%F{234}${icon_git_wrap_l}%f %K{234} %F{224}󱑂 %* %f%k"

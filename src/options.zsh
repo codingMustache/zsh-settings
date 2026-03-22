@@ -15,3 +15,5 @@ setopt CORRECT_ALL
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_VERIFY
 setopt MENU_COMPLETE
+
+export PATH="$HOME/.cargo/bin:$PATH"

@@ -1,3 +1,5 @@
+
+
 # Options
 if [ -f ~/.config/zsh/src/options.zsh ]; then
     source ~/.config/zsh/src/options.zsh
