@@ -19,8 +19,8 @@ alias server='ssh jorge@server.lan'
 alias pushMovies='rsync -rlvz \
 --progress \
 --no-owner --no-group --no-perms \
---exclude='.DS_Store' \
---exclude='.deletedByTmm' \
+--exclude=".DS_Store" \
+--exclude=".deletedByTmm" \
 --remove-source-files \
 --checksum \
  ~/Downloads/transfer/Movies/* \
@@ -29,8 +29,8 @@ jorge@server.lan:/hdd2/media/movies/'
 alias pushMusic='rsync -rlvz \
 --progress \
 --no-owner --no-group --no-perms \
---exclude='.DS_Store' \
---exclude='.deletedByTmm' \
+--exclude=".DS_Store" \
+--exclude=".deletedByTmm" \
 --remove-source-files \
 --checksum \
 ~/Downloads/transfer/Music/* \
@@ -40,8 +40,8 @@ alias pushTV='rsync -rlvz \
 --progress \
 --no-owner --no-group --no-perms \
 --remove-source-files \
---exclude='.DS_Store' \
---exclude='.deletedByTmm' \
+--exclude=".DS_Store" \
+--exclude=".deletedByTmm" \
 --checksum \
 ~/Downloads/transfer/TV/* \
 jorge@server.lan:/hdd2/media/tv/'
@@ -50,8 +50,8 @@ alias pushAudioBooks='rsync -rlvz \
 --progress \
 --remove-source-files \
 --no-owner --no-group --no-perms \
---exclude='.DS_Store' \
---exclude='.deletedByTmm' \
+--exclude=".DS_Store" \
+--exclude=".deletedByTmm" \
 --checksum \
 ~/Downloads/transfer/AudioBooks/* \
 jorge@server.lan:/hdd2/media/audiobooks/'

@@ -1,4 +1,4 @@
-
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 # Options
 if [ -f ~/.config/zsh/src/options.zsh ]; then
